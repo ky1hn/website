@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Starting build..."
+      - docker --version
+
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t harbor/webapp:latest .
+
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+      - docker images
